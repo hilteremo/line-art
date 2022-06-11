@@ -1,0 +1,60 @@
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class line20 extends JPanel{
+    
+    private static Component add;
+
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g); // metodo 
+        int x1=0;
+        int x2=0;
+        g.setColor(Color.RED); //para elegir el color
+        g.drawLine(0 ,0 , 500, 300);
+        g.drawLine(0, 300, 500, 0);
+        // inicia lineas izq inferior a superior 
+        for(x1=25; x1<=450;x1=x1+25){
+            g.drawLine(x1, 0, 0, 300);
+            
+        }
+
+
+            // inicia linea superior a inferior der
+        for(x1=25; x1<=450;x1=x1+25){
+            g.drawLine(x1, 0, 500, 300);
+            
+        }
+
+    
+         // inician lineas superior derecha a inferior
+        for(x2=25; x2<=450;x2=x2+25){
+            g.drawLine(500, 0,x2, 300);
+        }
+      
+
+         // inician lineas inferior izq a superior
+        for(x1=25; x1<=450;x1=x1+25){
+            g.drawLine(x1, 300, 0, 0);
+        }
+    }
+    
+    public static void main(String[] args) {
+        JFrame.setDefaultLookAndFeelDecorated(true); // para que se vea el frame
+        JFrame panel=new JFrame("line20"); //titulo de la ventana
+        panel.getBackground();//muestra el color de fondo
+        panel.setBackground(Color.BLUE);  // para cambiar el color del fondo
+        panel.setSize(510, 335); //tamaño del panel
+        
+        
+        line20 a=new line20(); //instancia de la clase
+        panel.add(a); //agregar el panel
+        panel.setVisible(true); //para que se vea el panel
+   
+    }
+    
+}
